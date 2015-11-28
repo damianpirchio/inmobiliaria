@@ -1,0 +1,158 @@
+@charset "UTF-8";
+/* Ac├í definimos nuestros mixins */
+/* navbar */
+.navbar-default {
+  letter-spacing: 1px;
+  background-color: #fff;
+  border-bottom: 2px solid #EBEBEB;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5); }
+  .navbar-default .navbar-header a {
+    color: #0074D9; }
+  .navbar-default .navbar-nav li {
+    transition-property: all 0.2s ease-out 0s;
+    -moz-transition-property: all 0.2s ease-out 0s;
+    -webkit-transition-property: all 0.2s ease-out 0s; }
+    .navbar-default .navbar-nav li a {
+      color: #111;
+      border-bottom: 6px solid transparent; }
+    .navbar-default .navbar-nav li a:hover {
+      color: #0074D9;
+      background-color: transparent;
+      border-bottom: 6px solid #0074D9; }
+  .navbar-default .navbar-nav li:active a {
+    color: #0074D9;
+    background-color: transparent;
+    border-bottom: 6px solid #0074D9; }
+
+footer {
+  background-image: url("../images/black_denim.png");
+  padding-top: 1.5em;
+  text-align: center; }
+  footer hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    border-width: thin;
+    margin-bottom: 22px;
+    margin-top: 8px; }
+  footer .foot-arriba {
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0.3em; }
+    footer .foot-arriba .fa-facebook-square {
+      color: rgba(255, 255, 255, 0.5); }
+      footer .foot-arriba .fa-facebook-square:hover {
+        color: #47639E; }
+    footer .foot-arriba .fa-twitter-square {
+      color: rgba(255, 255, 255, 0.5); }
+      footer .foot-arriba .fa-twitter-square:hover {
+        color: #28A9E0; }
+  footer .foot-abajo h6 {
+    color: rgba(255, 255, 255, 0.5); }
+  footer .foot-abajo a:hover {
+    text-decoration: none; }
+
+/*---- Fuentes ---- */
+/*---- Resoluciones ---- */
+/*---- Reglas b├ísicas ---- */
+* {
+  margin: 0;
+  padding: 0; }
+
+section {
+  padding-top: 70px;
+  margin: 0; }
+
+.page-content {
+  background-color: #ddd;
+  color: #0074D9;
+  padding-bottom: 2em; }
+  .page-content ul li {
+    line-height: 2em; }
+  .page-content .content-title {
+    text-align: center; }
+
+/* -------------------- MAPA -----------------------------* */
+.map-canvas {
+  width: 100%;
+  height: 300px;
+  border-bottom: 10px solid rgba(17, 17, 17, 0.7); }
+
+/*------------------------------------------------------- */
+.cartel {
+  background: #fff;
+  padding: 1.5em;
+  margin-bottom: 1em;
+  box-shadow: 4px 4px 2px #aaa;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px; }
+
+/* para los servicios */
+.container-fluid {
+  margin: 0;
+  padding: 0; }
+
+article {
+  padding-bottom: 50px;
+  padding-top: 50px; }
+  article .article-content {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center; }
+
+.azul {
+  background: #0074D9;
+  color: #fff; }
+
+.blanco {
+  background: #fff;
+  color: #0074D9; }
+
+.services-banner {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 255, 0.25) 1%, rgba(0, 0, 255, 0.2) 80%), url("../images/compraventa.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #fff;
+  padding-top: 100px;
+  padding-bottom: 70px; }
+
+.article-banner {
+  padding-bottom: 100px;
+  text-align: center; }
+
+.cartel-divisor {
+  background-color: #0074D9;
+  color: #fff;
+  letter-spacing: 1px;
+  padding-top: 1px;
+  padding-bottom: 5px;
+  text-align: center; }
+
+.detail-row {
+  background-color: #FF4136;
+  height: 100px; }
+  .detail-row .detail-col-left {
+    padding-right: 0;
+    height: 100%;
+    text-align: center;
+    letter-spacing: 3px; }
+  .detail-row .detail-col-right {
+    padding-left: 0;
+    height: 100%;
+    text-align: left;
+    padding-left: 30px; }
+
+/* --------- FONDO PAGINA INICIO ---------------- */
+.banner {
+  background-image: url("../images/fondo2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.celofan {
+  background-color: rgba(0, 116, 217, 0.4);
+  max-width: 100%;
+  height: 600px; }
+
+/* ---------------------------------------------- */
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,31 @@
+/* navbar */
+
+.navbar-default
+    letter-spacing: 1px
+    background-color: $white
+    border-bottom: 2px solid #EBEBEB
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5)
+
+    .navbar-header
+        a
+            color: $blue
+
+
+    .navbar-nav
+        li
+            transition-property: all 0.2s ease-out 0s
+            -moz-transition-property: all 0.2s ease-out 0s
+            -webkit-transition-property: all 0.2s ease-out 0s
+            a
+                color: $black
+                border-bottom: 6px solid transparent
+            a:hover
+                color: $blue
+                background-color: transparent
+                border-bottom: 6px solid $blue
+
+        li:active
+            a
+                color: $blue
+                background-color: transparent
+                border-bottom: 6px solid $blue
