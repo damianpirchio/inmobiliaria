@@ -5,8 +5,6 @@
 @import "_footer"
 
 
-p
-    color: $red
 
 /*---- Fuentes ---- */
 
@@ -62,9 +60,15 @@ article
     padding-top: 50px
 
     .article-content
-        padding-left: 30px
-        padding-right: 30px
+        padding-left: 10px
+        padding-right: 10px
         text-align: center
+
+        .article-text
+            //text-align: justify
+            padding-top: 7px
+            padding-left: 30px
+            padding-right: 30px
 
 
 .azul
@@ -84,6 +88,19 @@ article
     color: $white
     padding-top: 100px
     padding-bottom: 70px
+
+.faq-banner
+    background-image: linear-gradient(to bottom, rgba(0, 0, 255, 0.25) 1%, rgba(0, 0, 255, 0.2) 80%), url("../images/faqbanner2.jpg")
+    //background-image: url("../images/faqbanner4.jpg")
+    background-size: cover
+    background-repeat: no-repeat
+    //background-position: center center
+    background-position: center center
+    color: $white
+    padding-top: 100px
+    padding-bottom: 100px
+
+
 
 .article-banner
     padding-bottom: 100px

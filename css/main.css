@@ -49,7 +49,6 @@ footer {
   footer .foot-abajo a:hover {
     text-decoration: none; }
 
-
 /*---- Fuentes ---- */
 /*---- Resoluciones ---- */
 /*---- Reglas b├ísicas ---- */
@@ -95,9 +94,13 @@ article {
   padding-bottom: 50px;
   padding-top: 50px; }
   article .article-content {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
     text-align: center; }
+    article .article-content .article-text {
+      padding-top: 7px;
+      padding-left: 30px;
+      padding-right: 30px; }
 
 .azul {
   background: #0074D9;
@@ -115,6 +118,15 @@ article {
   color: #fff;
   padding-top: 100px;
   padding-bottom: 70px; }
+
+.faq-banner {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 255, 0.25) 1%, rgba(0, 0, 255, 0.2) 80%), url("../images/faqbanner2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #fff;
+  padding-top: 100px;
+  padding-bottom: 100px; }
 
 .article-banner {
   padding-bottom: 100px;
