@@ -47,15 +47,71 @@
     <!-- Page Content -->
 
     <div class="container-fluid">
-        <article class="blanco">
-            <div class="article-content">
-                <h1>Titulo</h1>
-                <p>Somos una pequeña inmobiliaria que valora el trabajo familiar e intenta crecer con tenacidad en un medio muy competitivo.</br></p>
-                <p>Buscamos diferenciarnos logrando un trato familiar con nuestros clientes, siempre priorizando el respeto mutuo.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <div id="slider" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#slider" data-slide-to="0" class="active"></li>
+                <li data-target="#slider" data-slide-to="1"></li>
+                <li data-target="#slider" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img class="img-responsive center-block" src="images/1.jpg" alt="Alt">
+                    <div class="carousel-caption">
+                    Texto de caption
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="img-responsive center-block" src="images/2.jpg" alt="Alt">
+                    <div class="carousel-caption">
+                    Texto de caption 2
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="img-responsive center-block" src="images/3.jpg" alt="Alt">
+                    <div class="carousel-caption">
+                    Texto de caption 3
+                    </div>
+                </div>
             </div>
 
-        </article>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="right carousel-control" href="#slider" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+
+        <div class="cartel-divisor">
+            <H2>¿QUÍENES SOMOS?</H2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-responsive img-thumbnail center-block" src="images/ruben.png" alt="ProfilePic" />
+            </div>
+
+            <div class="col-md-8 blanco">
+                <article>
+                    <div class="article-content">
+                        <div class="article-text">
+                            <p>Somos una pequeña inmobiliaria que inició sus actividades recién empezado el año 2000,la llegada del nuevo siglo fue uno de los grandes motivadores que nos impulsaron a dar el salto y empezar con este sueño familiar.</p>
+                            <p>Intentamos con tenacidad crecer en un medio muy competitivo.</br>Buscamos diferenciarnos logrando un trato familiar con nuestros clientes, siempre priorizando el respeto mutuo.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
     </div>
 
     <footer>
