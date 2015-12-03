@@ -110,6 +110,10 @@ article {
   background: #fff;
   color: #0074D9; }
 
+.negro {
+  background: #111;
+  color: #fff; }
+
 .services-banner {
   background-image: linear-gradient(to bottom, rgba(0, 0, 255, 0.25) 1%, rgba(0, 0, 255, 0.2) 80%), url("../images/compraventa.jpg");
   background-size: cover;
