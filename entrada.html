@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ABM">
+    <meta name="author" content="Webing Planners">
+
+    <title>Entrada de datos - Pirchio Propiedades</title>
+
+</head>
+
+<body>
+
+<form action="bin/alta.php" method="post" role="form">
+	<div>
+		<label>Tipo Inmueble</label>
+        <select name="type" class="form-control">
+		  <option value="casa">Casa</option>
+		  <option value="depto">Departamento</option>
+		  <option value="campo">Campo</option>
+		  <option value="terreno">Terreno</option>
+		  <option value="quinta">Casa Quinta</option>
+		  <option value="local">Local Comercial</option>
+		</select>
+    </div>
+    <div>
+		<label>Provincia</label>
+		<input name="state" type="text" class="form-control" autocomplete="off" required>
+    </div>
+	<div>
+		<label>Localidad</label>
+		<input name="loc" type="text" class="form-control" autocomplete="off" required>
+    </div>
+	<div>
+		<label>Direcci&oacute;n</label>
+		<input name="address" type="text" class="form-control" autocomplete="off" required>
+    </div>
+	<div>
+		<label>Venta</label>
+		<input name="sell_bool" type="checkbox" class="form-control" >
+    </div>
+	<div>
+		<label>Alquiler</label>
+		<input name="rent_bool" type="checkbox" class="form-control" >
+    </div>
+	<div>
+		<label>Monto Venta (no se muestra al publico)</label>
+		<input name="sell_val" type="number" class="form-control" autocomplete="off" >
+    </div>
+	<div>
+		<label>Monto Alquiler (no se muestra al publico)</label>
+		<input name="rent_val" type="number" class="form-control" autocomplete="off" >
+    </div>
+	<div>
+		<label>Superficie Cubierta</label>
+		<input name="cov_sur" type="text" class="form-control" autocomplete="off" >
+    </div>
+	<div>
+		<label>Superficie Terreno</label>
+		<input name="terr_sur" type="text" class="form-control" autocomplete="off" >
+    </div>
+	<div>
+		<button type="submit" class="btn btn-default">Enviar</button>
+    </div>
+</form>
+
