@@ -124,13 +124,22 @@ article {
   padding-bottom: 70px; }
 
 .faq-banner {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 255, 0.25) 1%, rgba(0, 0, 255, 0.2) 80%), url("../images/faqbanner2.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 255, 0.25) 1%, rgba(0, 0, 255, 0.2) 80%), url("../images/faqbanner1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  color: #fff;
-  padding-top: 100px;
-  padding-bottom: 100px; }
+  background-position: center top;
+  padding-top: 25%;
+  margin: 0 auto; }
+
+.faq-descripcion {
+  text-align: justify;
+  letter-spacing: 2px;
+  line-height: 1.5; }
+
+.btn-faq {
+  padding: 25px;
+  letter-spacing: 1px; }
 
 .article-banner {
   padding-bottom: 100px;
