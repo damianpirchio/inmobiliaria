@@ -1,9 +1,15 @@
 <?php
 
-	require 'bin/rb.php';
-	R::setup( 'mysql:host=localhost;dbname=pirchiopropiedades', 'root', 'pirchio' );//Conexion con BD
+	require '/includes/rb.php';
+	
+	spl_autoload_register(function ($class) {
+        include_once('includes/' . $class . '.class.php');
+    });
+	
+	$db = new Database;
+	$db->connect();
 
-	$inmuebles = R::findAll( 'inmuebles' );//Obtiene todos los registros de la tabla
+	$inmuebles = R::findAll( 'inmueble' );//Obtiene todos los registros de la tabla
 ?>
 <!DOCTYPE html>
 <html lang="es">

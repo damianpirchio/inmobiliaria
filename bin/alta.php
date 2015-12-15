@@ -29,4 +29,4 @@
     R::store($inmuebles);
     R::close();
 
-    echo "<script> window.location.assign('../abm.php'); </script>";
+    //echo "<script> window.location.assign('../abm.php'); </script>";

@@ -1,3 +1,16 @@
+<?php
+    require '/includes/rb.php';
+	
+	spl_autoload_register(function ($class) {
+        include_once('includes/' . $class . '.class.php');
+    });	
+
+	if (isset($_POST['user']) AND isset($_POST['pass'])) {
+
+		$user = new Usuario;
+		echo $user->login($_POST['user'],$_POST['pass']);
+	}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,7 +37,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 div-form">
-					<form action="bin/res_login.php" class="login-form form-horizontal" method="post" role="form">
+					<form action="" class="login-form form-horizontal" method="post" role="form">
 
 						<div class="form-group">
 							<label for="user" class="col-md-2 control-label">USUARIO</label>
