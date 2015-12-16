@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <!-- Author, Keywords y Description -->
-    <title>Pirchio Propiedades</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js">
+	</script>
+    <script src="js/map.js"></script>
+
     <link rel="stylesheet" href="css/main.css">
-    <!-- Fuentes y Favicon -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
+    <title>Sitio Parallax</title>
 </head>
-<body id="page-top">
-
+<body>
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -44,20 +45,291 @@
       </div><!-- /.container -->
     </nav>
 
+    <header class="box">
+        <div class="fondo"></div>
+        <div class="logo"></div>
 
-    <!-- Page Content -->
+    </header>
+    <section class="content">
+        <div class="container-fluid">
 
+            <article class="blanco">
+                <div class="article-content">
+                    <div class="article-row">
+                        <div class="row">
+                            <h1>¿QUIENES SOMOS?</h1>
+                        </div>
+                        <div class="row profile-row">
+                            <p class="col-md-6 col-md-offset-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                        <div class="row profile-row">
+                            <img src="images/ruben2.png"  class="img-responsive center-block" alt="">
+                        </div>
 
-    <div class="banner">
-        <div class="celofan">
-            <section></section>
-                <div class="container">
+                        <div class="row profile-row">
+                            <div id="slider" class="carousel slide" data-ride="carousel">
 
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#slider" data-slide-to="0" class="active"></li>
+                                    <li data-target="#slider" data-slide-to="1"></li>
+                                    <li data-target="#slider" data-slide-to="2"></li>
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <img class="img-responsive center-block" src="images/about1.jpg" alt="Alt">
+                                        <div class="carousel-caption">
+                                        Texto de caption
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img class="img-responsive center-block" src="images/about2.jpg" alt="Alt">
+                                        <div class="carousel-caption">
+                                        Texto de caption 2
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img class="img-responsive center-block" src="images/about3.jpg" alt="Alt">
+                                        <div class="carousel-caption">
+                                        Texto de caption 3
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Anterior</span>
+                                </a>
+                                <a class="right carousel-control" href="#slider" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Siguiente</span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
-            </section>
-        </div>
-    </div>
+            </article>
 
+            <article class="azul">
+                <div class="article-content">
+                    <div class="article-row">
+                        <h1>SERVICIOS</h1>
+                    </div>
+                    <div class="row article-row">
+                        <div class="col-md-3">
+
+                            <div class="article-content">
+                                <h1><i class="fa fa-usd"></i></h1>
+                                <h3>VENTAS-ALQUILERES</h3>
+                                <div class="article-text">
+                                    <p>Realizamos todo tipo de operaciones comerciales, poniendo especial atención en la seguridad y transparencia que usted necesita.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="article-content">
+                                <h1><i class="fa fa-tag"></i></h1>
+                                <h3>ADMINISTRACIÓN</h3>
+                                <div class="article-text">
+                                    <p>Contamos con un servicio de administración de propiedades que brinda confianza tanto a propietarios como a inquilinos, gestionando el cobro en tiempo y forma de los alquileres, y controlando los pagos de impuestos y servicios de todas las viviendas alquiladas.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="article-content">
+                                <h1><i class="fa fa-pencil-square-o"></i></h1>
+                                <h3>TASACIONES</h3>
+                                <div class="article-text">
+                                    <p>Garantizamos responsabilidad y seriedad para valuar su inmueble, realizando un análisis minucioso que nos permita obtener el valor real que su propiedad tiene en el mercado inmobiliario actual.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="article-content">
+                                <h1><i class="fa fa-gavel"></i></h1>
+                                <h3>REMATES</h3>
+                                <div class="article-text">
+                                    <p>Asumimos el profesionalismo y seriedad para darle a los remates la cuota de seguridad necesaria para convertirlos en una inversión confortable.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- row end -->
+                </div><!-- article-content end -->
+            </article>
+
+
+            <article class="blanco">
+                <div class="article-content">
+                    <div class="article-row">
+                        <h1>PROPIEDADES</h1>
+                    </div>
+                    <!-- Formu búsqueda -->
+                    <div class="article-row">
+                        <div class="col-md-8 col-md-offset-2 div-formulario">
+                            <form class="form-inline" action="" method="post" role="form">
+
+                                <div class="form-group">
+                                    <label for="tipo-operacion">Operación</label>
+                                    <select class="form-control" name="tipo-operacion">
+                                        <option name="op-venta" value="">VENTA</option>
+                                        <option name="op-alquiler" value="">ALQUILER</option>
+                                        <option name="op-ambas" value="">VENTA/ALQUILER</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tipo-inmueble">Tipo de Inmueble</label>
+                                    <select class="form-control" name="tipo-inmueble">
+                                        <option name="" value="">CASA</option>
+                                        <option name="" value="">DEPARTAMENTO</option>
+                                        <option name="" value="">CAMPO</option>
+                                        <option name="" value="">TERRENO</option>
+                                        <option name="" value="">CASA QUINTA</option>
+                                        <option name="" value="">LOCAL COMERCIAL</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default btn-primary">BUSCAR</button>
+        						</div>
+
+                            </form>
+                        </div> <!-- div-formu end -->
+                    </div> <!-- article-row end -->
+                </div>
+
+                <div class="article-content">
+                    <div class="row article-row vertical-align">
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="images/casa1.jpg" class="center-block img-responsive" alt="">
+                                <h5>Dirección</h5>
+                            </a>
+                            <!-- <h4>Direccion 1</h4> -->
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="images/casa2.jpg" class="center-block img-responsive" alt="">
+                                <h5>Dirección</h5>
+                            </a>
+                            <!--  <h4>Direccion 2</h4>
+                            -->
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="images/casa3.jpg" class="center-block img-responsive" alt="">
+                                <h5>Dirección</h5>
+                            </a>
+                            <!--
+                            <h4>Direccion 3</h4>
+                            -->
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="images/casa4.jpg" class="center-block img-responsive" alt="">
+                                <h5>Dirección</h5>
+                            </a>
+                            <!--
+                            <h4>Direccion 4</h4>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="azul">
+                <div class="article-content">
+                    <div class="article-row">
+                        <h1>INFORMACIÓN</h1>
+                    </div>
+                    <div class="row article-row">
+                        <div class="col-md-6">
+                            <div class="col-md-10 col-md-offset-1">
+                                <H2>ALQUILER DE VIVIENDA</H2>
+                                <div class="info-content">
+                                    <h3>ANTES DE EMPEZAR</h3>
+                                    <ul class="list-unstyled info-list">
+                                        <li><i class="fa fa-check-square-o"></i>&nbsp; Fotocopia de DNI 1°y 2° hoja y último domicilio.</li>
+                                        <li><i class="fa fa-check-square-o"></i>&nbsp; Fotocopia de 3 últimos recibos de sueldos / pagos monotributo.</li>
+                                        <li><i class="fa fa-check-square-o"></i>&nbsp; Fotocopia DNI de la persona del Garante(No puede ser jubilado/a ni mayor de 70 años).</li>
+                                        <li><i class="fa fa-check-square-o"></i>&nbsp; Fotocopia de escritura de propiedad y de un servicio a nombre del Garante.</li>
+
+                                    </ul>
+                                </div>
+                                <HR></HR>
+                                <div class="info-content">
+                                    <h3>UNA VEZ CONVENIDO EL CONTRATO</h3>
+                                    <ul class="list-unstyled info-list">
+
+                                        <li><i class="fa fa-check-square-o"></i>&nbsp; Abonar depósito de garantía y mes de alquiler por adelantado.</li>
+                                        <li><i class="fa fa-check-square-o"></i>&nbsp; Abonar los honorarios de la inmobiliaria.</li>
+                                        <li><i class="fa fa-check-square-o"></i>&nbsp; Los costos para la solicitud de los servicios de luz, gas, teléfono, cable, etc. son por cuenta exclusiva del locatario.</li>
+                                        <li><i class="fa fa-check-square-o"></i>&nbsp; Para  tomar posesión del inmueble en alquiler es indispensable completar la totalidad de los puntos anteriores.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+
+                                    <h3>MASCOTAS Y CHICOS</h3>
+                                    <div class="info-content">
+                                        <p class="info-list">En la mayoría de los complejos de departamentos hay reglas de convivencia prohibiendo la ocupación de mascotas sancionado por un consorcio que regula este reglamento. En el caso de no existir un consorcio recomendamos a los propietarios de no permitir mascotas para evitar futuros conflictos de convivencia. Por otro lado, son los mismos propietarios quienes ya vienen con una postura firme en cuanto a la prohibición de mascotas.</p>
+                                        <p class="info-list">Con respecto a los chicos son los propietarios quienes deciden si se permiten los niños en el alquiler.</p>
+                                    </div>
+                                    <HR></HR>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <h3>DURACIÓN DE CONTRATOS</h3>
+                                    <div class="info-content">
+                                        <p class="info-list">Según el art. 1198 del nuevo Código Civil y Comercial, los contratos tienen un plazo mínimo de 2 años cualquiera sea su destino (vivienda familiar y locación comercial), salvo excepciones citadas en el art. 1199. Cada contrato expresa textualmente las condiciones que tanto el propietario como el inquilino deben respetar durante el tiempo de vigencia del mismo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+            <div class="location">
+
+            </div>
+
+
+            <article class="article-map">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div id="map-canvas" class="map-canvas">
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+        </div>
+
+    </section>
+
+
+    <!--
+    <div class="largo"></div>
+     -->
+    <!-- FOOTER -->
 
     <footer>
         <div class="container">
@@ -67,14 +339,14 @@
                         <h1>Pirchio Propiedades</h1>
                     </div>
                     <div class="col-md-6 text-left">
-                        <div class="row"><h6><i class="fa fa-map-marker"></i>&nbsp&nbsp 101 N°93 Oeste - General Pico (L.P)</h6></div>
-                        <div class="row"><h6><i class="fa fa-phone"></i>&nbsp&nbsp 431112 - (2302) 511455&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-clock-o"></i>&nbsp&nbsp L a V: 9:00 - 12:00 | 16:00 - 20:00</h6></div>
+                        <div class="row"><h6><i class="fa fa-map-marker"></i>&nbsp;&nbsp; 101 N°93 Oeste - General Pico (L.P)</h6></div>
+                        <div class="row"><h6><i class="fa fa-phone"></i>&nbsp;&nbsp; 431112 - (2302) 511455&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock-o"></i>&nbsp&nbsp L a V: 9:00 - 12:00 | 16:00 - 20:00</h6></div>
 
                     </div>
                     <div class="col-md-2">
                         SEGUINOS
                         <div class="row">
-                            <div><h1><a href="https://www.facebook.com/pirchio.propiedades"><i class="fa fa-facebook-square"></i></a>&nbsp&nbsp <a href="#"><i class="fa fa-twitter-square"></i></a></h1></div>
+                            <div><h1><a href="https://www.facebook.com/pirchio.propiedades"><i class="fa fa-facebook-square"></i></a>&nbsp;&nbsp; <a href="#"><i class="fa fa-twitter-square"></i></a></h1></div>
 
                         </div>
                     </div>
@@ -83,16 +355,16 @@
             <hr>
             <div class="foot-abajo">
                 <h6>
-                     <i class="fa fa-copyright"></i>&nbsp 2015 &nbsp<a href="www.damianpirchio.com">damianpirchio</a>&nbsp|&nbspTodos los derechos reservados.
+                     <i class="fa fa-copyright"></i>&nbsp; 2015 &nbsp;<a href="www.damianpirchio.com">damianpirchio</a>&nbsp;|&nbsp;Todos los derechos reservados.
                 </h6>
             </div>
         </div> <!-- container -->
     </footer>
 
-    <!-- primero siempre jQuery y luego los scripts -->
-    <script src="js/jquery.js" charset="utf-8"></script>
-    <!-- Bootstrap -->
+
+    <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="js/effects.js"></script>
 
 </body>
 </html>
