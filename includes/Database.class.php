@@ -1,33 +1,63 @@
 <?php
-	spl_autoload_register(function ($class) {
-        include_once('includes/' . $class . '.class.php');
-    });
-	
-	class Database{	
+	include_once 'rb.php';
 
-		// Atributos ---------------------------
-		
-		// Métodos -----------------------------
-		function connect(){	
-			// Abro los datos de conexion y lo convierto en array para su utilizacion
-			$config = parse_ini_file('dbpirchiopropiedades.conf.ini');
-			$dbname = "mysql:host=localhost;dbname=".$config['dbname'];
-			$user = $config['username'];
-			$pass = $config['password'];		
-			
-			R::setup( $dbname, $user, $pass );		
-			
-			// Si la conexion no se logro, capturo el error
-			if(!R::testConnection()) {
-				echo "No se ah podido conectar con la base de datos";
-			}
-		}
-		
-		function disconnect(){
-			R::close();
-		}
-	}
-	
-	
-	
+/**Clase Database encargada de la conexion con la base de datos
+ * Version 1.0
+ * Autor Ale
+ */
+	class Database{
+
+	// Atributos ---------------------------
+			 private static $instancia;
+			 private $config;
+			 private $dbname;
+			 private $user;
+			 private $pass;
+			 private $isFrozen;
+
+		   private function __construct()
+		   {  $this->config= parse_ini_file('../dbpirchiopropiedades.conf.ini');
+					$this->dbname = "mysql:host=localhost;dbname=".$this->config['dbname'];
+					$this->user = $this->config['username'];
+					$this->pass = $this->config['password'];
+					$this->isFrozen = $this->config['frozen'];
+		   }
+
+
+			 /*Metodo que sirve para obtener una instancia de la clase
+			  *
+			  */
+		   public static function getInstance()
+		   {
+		      if (  !self::$instancia instanceof self)
+		      {
+		         self::$instancia = new self;
+		      }
+		      return self::$instancia;
+		   }
+
+
+			/*Metodo que sirve para conectar con la base de dato
+			 *
+			 */
+			 public function connect(){
+					 R::setup( $this->dbname, $this->user, $this->pass, $this->isFrozen );
+			 }
+
+			 /*Metodo que sirve para verificar la conexion con la base de dato
+			  *retorna un valor boolean
+			  */
+			 public function isConnect(){
+			 	return R::testConnection();
+			 }
+
+			 /*Metodo que sirve para desconectarse de la base de dato
+			  *
+			  */
+			 public function disconnect(){
+			 	R::close();
+			 }
+
+}
+
 ?>
