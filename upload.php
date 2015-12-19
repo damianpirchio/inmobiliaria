@@ -9,6 +9,12 @@ if (isset($_FILES['image'])) {
 
     $img = new Imagen();
     $img->uploadImage();
+    $thefile = $img->get_upload_path().$img->get_file_name();
+    $output = $img->get_upload_path()."thumb_".$img->get_file_name();
+    $result = $img->resizeImage($thefile, null, 200, 0, true, $output, false, false, 100, false);
+    if(!$result) {
+      echo "Un error ha ocurrido al redimensionar su imagen";
+    }
 }
 ?>
 <html>

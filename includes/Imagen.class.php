@@ -16,9 +16,30 @@ class Imagen
      * @return boolean|resource
      */
     // Atributos ---------------------------
-    public $upload_path = 'images/uploads/';
+    private $upload_path = 'images/uploads/';
+    private $file_name;
+    private $file_size;
+    private $file_tmp;
+    private $file_type;
+    private $file_ext;
 
     // Métodos -----------------------------
+
+    public function get_upload_path()
+    {
+        return $this->upload_path;
+    }
+
+    public function get_file_name()
+    {
+        return $this->file_name;
+    }
+
+    public function get_file_tmp()
+    {
+        return $this->file_tmp;
+    }
+    
     public function uploadImage()
     {
         $errors= array();
@@ -26,7 +47,16 @@ class Imagen
         $file_size =$_FILES['image']['size'];
         $file_tmp =$_FILES['image']['tmp_name'];
         $file_type=$_FILES['image']['type'];
+
+
         $file_ext=strtolower(end(explode('.', $_FILES['image']['name'])));
+
+        // Setting class variables here
+        $this->file_name = $_FILES['image']['name'];
+        $this->file_size =$_FILES['image']['size'];
+        $this->file_tmp = $_FILES['image']['tmp_name'];
+        $this->file_type = $_FILES['image']['type'];
+        $this->file_ext = strtolower(end(explode('.', $_FILES['image']['name'])));
 
         $expensions= array("jpeg","jpg","png");
 
