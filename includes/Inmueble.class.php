@@ -3,12 +3,12 @@
 	spl_autoload_register(function ($class) {
         include_once('includes/' . $class . '.class.php');
     });
-	
+
 	$db = new Database;
 	$db->connect();
-	
+
 	class Inmueble{
-		
+
 		// Atributos ---------------------------
 		private $type_inm;
 		private $state;
@@ -23,9 +23,9 @@
 
 		// Métodos -----------------------------
 		function alta(){
-				
+
 		}
 	}
-	
+
 	$db->disconnect();
 ?>

@@ -15,8 +15,8 @@
 			 private $pass;
 			 private $isFrozen;
 
-		   private function __construct()
-		   {  $this->config= parse_ini_file('../dbpirchiopropiedades.conf.ini');
+		   function __construct()
+		   {  $this->config= parse_ini_file('dbpirchiopropiedades.conf.ini');
 					$this->dbname = "mysql:host=localhost;dbname=".$this->config['dbname'];
 					$this->user = $this->config['username'];
 					$this->pass = $this->config['password'];

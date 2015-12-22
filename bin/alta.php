@@ -1,5 +1,5 @@
 <?php
-    require 'rb.php';
+    require '../includes/rb.php';
     R::setup('mysql:host=localhost;dbname=pirchiopropiedades', 'root', 'pirchio');//Conexion con BD
 
     $type_inm = $_POST['type'];

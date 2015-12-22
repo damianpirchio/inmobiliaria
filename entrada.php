@@ -8,25 +8,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Entrada de datos">
     <meta name="author" content="Webing Planners">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Fuentes y Favicon -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <title>Entrada de datos - Pirchio Propiedades</title>
 
 </head>
 
 <body>
+    <div class="form-wrapper">
+        <div class="container">
+
+
+
+        </div>
+    </div>
 
 <?php
-	require '/bin/rb.php';
+	//require '/bin/rb.php';
 
 	if(ISSET($_GET["id"])){
-		
+
 		R::setup( 'mysql:host=localhost;dbname=pirchiopropiedades', 'root', 'pirchio' );//Conexion con BD
 		$id=$_GET["id"];
 		//Aqui, en caso de que exista el parametro ID se obtiene dicho registro para rellenar el formulario, sino lo escribe vacio y funciona como simple entrada de datos.
 		$inmueble = R::findOne('inmuebles',' id = ? ', [$id]);
-		
+
 		?>
-		<form action="bin/edicion.php" method="post" role="form">
+
+        <form action="bin/edicion.php" method="post" role="form">
 			<div>
 				<label>Tipo Inmueble</label>
 				<?php
@@ -116,10 +129,10 @@
 								</select>
 							<?php
 						break;
-					
+
 					}
 				?>
-				
+
 			</div>
 			<div>
 				<label>Provincia</label>
@@ -135,21 +148,21 @@
 			</div>
 			<div>
 				<label>Venta</label>
-				<?php 
+				<?php
 					if($inmueble->venta!=NULL)
 						print "<input name='sell_bool' type='checkbox' class='form-control' checked='checked' >";
 					else
-						print "<input name='sell_bool' type='checkbox' class='form-control' >";	
-				?>				
+						print "<input name='sell_bool' type='checkbox' class='form-control' >";
+				?>
 			</div>
 			<div>
 				<label>Alquiler</label>
-				<?php 
+				<?php
 					if($inmueble->alquiler!=NULL)
 						print "<input name='rent_bool' type='checkbox' class='form-control' checked='checked' >";
 					else
-						print "<input name='rent_bool' type='checkbox' class='form-control' >";						
-				?>			
+						print "<input name='rent_bool' type='checkbox' class='form-control' >";
+				?>
 			</div>
 			<div>
 				<label>Monto Venta (no se muestra al publico)</label>
@@ -174,7 +187,7 @@
 		</form>
 		<?php
 	}else {
-		?>			
+		?>
 			<form action="bin/alta.php" method="post" role="form">
 				<div>
 					<label>Tipo Inmueble</label>
@@ -227,11 +240,10 @@
 					<button type="submit" class="btn btn-default">Enviar</button>
 				</div>
 			</form>
-		<?php		
+		<?php
 	}
-	
-	R::close();	
+
+
 ?>
 </body>
 </html>
-
