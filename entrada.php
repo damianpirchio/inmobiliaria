@@ -28,7 +28,11 @@
     </div>
 
 <?php
-	//require '/bin/rb.php';
+	//require '/includes/rb.php';
+	
+	spl_autoload_register(function ($class) {
+        include_once('includes/' . $class . '.class.php');
+    });
 
 	if(ISSET($_GET["id"])){
 
@@ -187,8 +191,15 @@
 		</form>
 		<?php
 	}else {
+		
+		if (isset($_POST['state']) AND isset($_POST['loc']) AND isset($_POST['address'])) {
+
+			$datos = array_merge(array(), $_POST);
+			
+			$inmueble = new Inmueble($datos);
+		}
 		?>
-			<form action="bin/alta.php" method="post" role="form">
+			<form action="" method="post" role="form">
 				<div>
 					<label>Tipo Inmueble</label>
 					<select name="type" class="form-control">
@@ -242,7 +253,6 @@
 			</form>
 		<?php
 	}
-
 
 ?>
 </body>
