@@ -197,6 +197,8 @@
 			$datos = array_merge(array(), $_POST);
 			
 			$inmueble = new Inmueble($datos);
+			
+			echo "<script> window.location.assign('abm.php'); </script>";
 		}
 		?>
 			<form action="" method="post" role="form">

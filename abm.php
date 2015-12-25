@@ -6,7 +6,7 @@
         include_once('includes/' . $class . '.class.php');
     });
 
-	$db = new Database;
+	$db = Database::getInstance();
 	$db->connect();
 
 	$inmuebles = R::findAll( 'inmueble' );//Obtiene todos los registros de la tabla

@@ -4,7 +4,7 @@
         include_once('includes/' . $class . '.class.php');
     });
 	
-	$db = new Database;
+	$db = Database::getInstance();
 	$db->connect();
 	
 	class Usuario{

@@ -6,7 +6,7 @@
         include_once($class . '.class.php');
     });
 
-	$db = new Database;
+	$db = Database::getInstance();
 	$db->connect();
 
 	class Inmueble{
