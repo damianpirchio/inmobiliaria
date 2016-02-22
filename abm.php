@@ -1,14 +1,31 @@
 <?php
 
-	require '/includes/rb.php';
+	require 'rb.php';
+	
+	/*** Anulo todos los autoload existentes ***/
+    spl_autoload_register(null, false);
 
-	spl_autoload_register(function ($class) {
-        include_once('includes/' . $class . '.class.php');
-    });
+    /*** especifico que extensiones se abriran ***/
+    spl_autoload_extensions('.class.php');
+
+    /*** clase Loader ***/
+    function classLoader($class)
+    {
+        $filename = strtolower($class) . '.class.php';
+        $file ='includes/' . $filename;
+        if (!file_exists($file))
+        {
+            return false;
+        }
+        include $file;
+    }
+
+    /*** registro la funcion Loader ***/
+    spl_autoload_register('classLoader');
 
 	$db = Database::getInstance();
 	$db->connect();
-
+	
 	$inmuebles = R::findAll( 'inmueble' );//Obtiene todos los registros de la tabla
 ?>
 <!DOCTYPE html>
@@ -117,7 +134,7 @@
 								<!-- Aca "sobrecargo" la url de entrada, que luego comprobara si tiene parametro GET o no y funcionara acorde, si se les ocurre una mejor forma, avisen.-->
 								<a href="#" title="Ver"><i class="fa fa-file-text-o"></i></a>&nbsp&nbsp&nbsp
 								<a href="entrada.php?id=<?php echo $inmueble->id; ?>" title="Editar"><i class="fa fa-pencil-square-o"></i></a>&nbsp&nbsp&nbsp
-								<a href="bin/borrar.php?id=<?php print $inmueble->id; ?>" title="Borrar"><i class="fa fa-times"></i></a>
+								<a href="borrar.php?id=<?php print $inmueble->id; ?>" title="Borrar"><i class="fa fa-times"></i></a>
 
 							</td>
 						</tr>

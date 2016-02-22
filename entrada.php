@@ -28,22 +28,42 @@
     </div>
 
 <?php
-	//require '/includes/rb.php';
+	require 'rb.php';
 	
-	spl_autoload_register(function ($class) {
-        include_once('includes/' . $class . '.class.php');
-    });
+	/*** Anulo todos los autoload existentes ***/
+    spl_autoload_register(null, false);
+
+    /*** especifico que extensiones se abriran ***/
+    spl_autoload_extensions('.class.php');
+
+    /*** clase Loader ***/
+    function classLoader($class)
+    {
+        $filename = strtolower($class) . '.class.php';
+        $file ='includes/' . $filename;
+        if (!file_exists($file))
+        {
+            return false;
+        }
+        include $file;
+    }
+
+    /*** registro la funcion Loader ***/
+    spl_autoload_register('classLoader');
+
 
 	if(ISSET($_GET["id"])){
 
-		R::setup( 'mysql:host=localhost;dbname=pirchiopropiedades', 'root', 'pirchio' );//Conexion con BD
+		//R::setup( 'mysql:host=localhost;dbname=pirchiopropiedades', 'root', 'pirchio' );//Conexion con BD
+		$db = Database::getInstance();
+		$db->connect();
 		$id=$_GET["id"];
 		//Aqui, en caso de que exista el parametro ID se obtiene dicho registro para rellenar el formulario, sino lo escribe vacio y funciona como simple entrada de datos.
-		$inmueble = R::findOne('inmuebles',' id = ? ', [$id]);
+		$inmueble = R::findOne('inmueble',' id = ? ', [$id]);
 
 		?>
 
-        <form action="bin/edicion.php" method="post" role="form">
+        <form action="edicion.php" method="post" role="form">
 			<div>
 				<label>Tipo Inmueble</label>
 				<?php

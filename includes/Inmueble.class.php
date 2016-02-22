@@ -1,14 +1,8 @@
-<?php
-
-	require('rb.php');
-
-	spl_autoload_register(function ($class) {
-        include_once($class . '.class.php');
-    });
+<?php	
 
 	$db = Database::getInstance();
 	$db->connect();
-
+		
 	class Inmueble{
 
 		// Atributos ---------------------------
@@ -22,6 +16,8 @@
 		private $rent_val;
 		private $cov_sur;
 		private $terr_sur;
+		
+		
 
 		// Métodos -----------------------------
 		function __construct($datos) {
@@ -75,9 +71,10 @@
 			$inmueble->SUPERFICIECUBIERTA = $cov_sur;
 			$inmueble->SUPERFICIETERRENO = $terr_sur;
 
-			R::store($inmueble);
-		}
+			R::store($inmueble);	
+		}		
+	
 	}
-
+			
 	$db->disconnect();
 ?>

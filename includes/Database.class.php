@@ -1,5 +1,4 @@
 <?php
-	include_once 'rb.php';
 
 /**Clase Database encargada de la conexion con la base de datos
  * Version 1.0
