@@ -1,32 +1,11 @@
 <?php
 
-	require 'rb.php';
-	
-	/*** Anulo todos los autoload existentes ***/
-    spl_autoload_register(null, false);
-
-    /*** especifico que extensiones se abriran ***/
-    spl_autoload_extensions('.class.php');
-
-    /*** clase Loader ***/
-    function classLoader($class)
-    {
-        $filename = strtolower($class) . '.class.php';
-        $file ='includes/' . $filename;
-        if (!file_exists($file))
-        {
-            return false;
-        }
-        include $file;
-    }
-
-    /*** registro la funcion Loader ***/
-    spl_autoload_register('classLoader');
+	include_once 'includes/autoloader.php';
+	include_once 'includes/rb.php';
 
 	$db = Database::getInstance();
-	$db->connect();
-	
-	$inmuebles = R::findAll( 'inmueble' );//Obtiene todos los registros de la tabla
+	$db->connect();	
+	$inmuebles = R::findAll( 'inmueble' ); //Obtiene todos los registros de la tabla
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -108,24 +87,30 @@
 
 					<tbody>
 						<?php
-							foreach($inmuebles as $inmueble){//Recorro todos los registros del array resultado
+							//Recorro todos los registros del array resultado
+							foreach ($inmuebles as $inmueble){
 						?>
 						<tr>
 							<td>
 								<?php
-								if($inmueble->venta!=NULL AND $inmueble->alquiler==NULL)
-									echo "Venta";
-								elseif($inmueble->alquiler!=NULL AND $inmueble->venta==NULL)
-									echo "Alquiler";
-								elseif($inmueble->alquiler!=NULL AND $inmueble->venta!=NULL)
-									echo "Venta y Alquiler";
+									if ($inmueble->venta!=NULL AND $inmueble->alquiler==NULL)
+										echo "Venta";
+									elseif ($inmueble->alquiler!=NULL AND $inmueble->venta==NULL)
+										echo "Alquiler";
+									elseif ($inmueble->alquiler!=NULL AND $inmueble->venta!=NULL)
+										echo "Venta y Alquiler";
 								?>
 							</td>
 							<td>
-								<?php print ucwords($inmueble->tipoinmueble);//Esta funcion es para capitalizar la palabra, asi queda mas bonito ?>
+								<?php 
+									//Esta funcion es para capitalizar la palabra, asi queda mas bonito
+									print ucwords($inmueble->tipoinmueble);  
+								?>
 							</td>
 							<td>
-								<?php print $inmueble->direccion; ?>
+								<?php 
+									print $inmueble->direccion; 
+								?>
 							</td>
 							<td>
 								-
@@ -142,7 +127,7 @@
 					</tbody>
 					<?php
 						}
-						R::close();
+						$db->disconnect();
 					?>
 				</table>
 			</div>

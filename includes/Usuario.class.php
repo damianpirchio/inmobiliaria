@@ -21,16 +21,14 @@
 			$login = R::findOne('usuario',' login = ? AND pass = ? ', [$name,$pass]);
 			
 			//Compruebo el exito del login, redirecciono al abm en caso de exito, comunico en caso de fracaso.
-			if($login != NULL) {
+			if ($login != NULL) {
 				$result = "<script> window.location.assign('abm.php'); </script>";				
 			} else {
 				$result = "<script> window.location.assign('wrong_login.html'); </script>";
-			}	
-			
+			}				
 			return $result;
 		}
 	}
 	
-	$db->disconnect();
-
+	$db->disconnect();	
 ?>

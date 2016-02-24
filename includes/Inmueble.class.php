@@ -17,8 +17,6 @@
 		private $cov_sur;
 		private $terr_sur;
 		
-		
-
 		// Métodos -----------------------------
 		function __construct($datos) {
 			
@@ -27,39 +25,39 @@
 			$loc = $datos['loc'];
 			$address = $datos['address'];
 			
-			if(ISSET($datos['sell_bool'])) {
+			if (ISSET($datos['sell_bool'])) {
 				$sell_bool = $datos['sell_bool'];
-			}else{
+			} else {
 				$sell_bool = NULL;
 			}
-			if(ISSET($datos['rent_bool'])) {
+			if (ISSET($datos['rent_bool'])) {
 				$rent_bool = $datos['rent_bool'];
-			}else{
+			} else {
 				$rent_bool = NULL;
 			}
-			if(ISSET($datos['rent_val'])) {
+			if (ISSET($datos['rent_val'])) {
 				$rent_val = $datos['rent_val'];
-			}else{
+			} else {
 				$rent_val = NULL;
 			}
-			if(ISSET($datos['sell_val'])) {
+			if (ISSET($datos['sell_val'])) {
 				$sell_val = $datos['sell_val'];
-			}else{
+			} else {
 				$sell_val = NULL;
 			}
-			if(ISSET($datos['cov_sur'])) {
+			if (ISSET($datos['cov_sur'])) {
 				$cov_sur = $datos['cov_sur'];
-			}else{
+			} else {
 				$cov_sur = NULL;
 			}
-			if(ISSET($datos['terr_sur'])) {
+			if (ISSET($datos['terr_sur'])) {
 				$terr_sur = $datos['terr_sur'];
-			}else{
+			} else {
 				$terr_sur = NULL;
 			}
 			
 			$inmueble=R::dispense('inmueble');
-
+			
 			$inmueble->TIPOINMUEBLE = $type_inm;
 			$inmueble->PROVINCIA = $state;
 			$inmueble->LOCALIDAD = $loc;
@@ -73,7 +71,6 @@
 
 			R::store($inmueble);	
 		}		
-	
 	}
 			
 	$db->disconnect();

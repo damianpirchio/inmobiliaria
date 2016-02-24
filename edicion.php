@@ -1,84 +1,64 @@
 <?php
 
-	include_once 'rb.php';
-	
-	/*** Anulo todos los autoload existentes ***/
-    spl_autoload_register(null, false);
-
-    /*** especifico que extensiones se abriran ***/
-    spl_autoload_extensions('.class.php');
-
-    /*** clase Loader ***/
-    function classLoader($class)
-    {
-        $filename = strtolower($class) . '.class.php';
-        $file ='includes/' . $filename;
-        if (!file_exists($file))
-        {
-            return false;
-        }
-        include $file;
-    }
-
-    /*** registro la funcion Loader ***/
-    spl_autoload_register('classLoader');
+	include_once 'includes/autoloader.php';
+	include_once 'includes/rb.php';
 	
 	$db = Database::getInstance();
 	$db->connect();
-	
-	$id=$_POST['id'];//Obtengo el ID a editar
-	
-	$inmueble = R::load( 'inmueble', $id );//Abro el registro en la tabla con dicho ID
+	//Obtengo el ID a editar
+	$id = $_POST['id']; 
+	//Abro el registro en la tabla con dicho ID
+	$inmueble = R::load( 'inmueble', $id );
 	
 	//Seteo las variables.
-	if(ISSET($_POST['type_inm'])) {
-		$type_inm = $_POST['type_inm'];
-	}else{
+	if (ISSET($_POST['type'])) {
+		$type_inm = $_POST['type'];
+	} else {
 		$type_inm = NULL;
 	}
-	if(ISSET($_POST['state'])) {
+	if (ISSET($_POST['state'])) {
 		$state = $_POST['state'];
-	}else{
+	} else {
 		$state = NULL;
 	}
-	if(ISSET($_POST['loc'])) {
+	if (ISSET($_POST['loc'])) {
 		$loc = $_POST['loc'];
-	}else{
+	} else {
 		$loc = NULL;
 	}
-	if(ISSET($_POST['address'])) {
+	if (ISSET($_POST['address'])) {
 		$address = $_POST['address'];
-	}else{
+	} else {
 		$address = NULL;
 	}	
-	if(ISSET($_POST['sell_bool'])) {
+	if (ISSET($_POST['sell_bool'])) {
 		$sell_bool = $_POST['sell_bool'];
-	}else{
+	} else {
 		$sell_bool = NULL;
 	}
-	if(ISSET($_POST['rent_bool'])) {
+	if (ISSET($_POST['rent_bool'])) {
 		$rent_bool = $_POST['rent_bool'];
-	}else{
+	} else {
 		$rent_bool = NULL;
 	}
-	if(ISSET($_POST['rent_val'])) {
+	if (ISSET($_POST['rent_val'])) {
 		$rent_val = $_POST['rent_val'];
-	}else{
+	} else {
 		$rent_val = NULL;
 	}
-	if(ISSET($_POST['sell_val'])) {
+	if (ISSET($_POST['sell_val'])) {
 		$sell_val = $_POST['sell_val'];
-	}else{
+	} else {
 		$sell_val = NULL;
 	}
-	if(ISSET($_POST['cov_sur'])) {
+	if (ISSET($_POST['cov_sur'])) {
 		$cov_sur = $_POST['cov_sur'];
-	}else{
+	} else {
 		$cov_sur = NULL;
 	}
-	if(ISSET($_POST['terr_sur'])) {
+	if (ISSET($_POST['terr_sur'])) {
 		$terr_sur = $_POST['terr_sur'];
-	}else{
+	} else {
 		$terr_sur = NULL;
 	}
 	
@@ -100,5 +80,4 @@
 	
 	//Redirecciono al ABM.
 	echo "<script> window.location.assign('abm.php'); </script>"	
-
 ?>

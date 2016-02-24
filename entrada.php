@@ -28,33 +28,11 @@
     </div>
 
 <?php
-	require 'rb.php';
-	
-	/*** Anulo todos los autoload existentes ***/
-    spl_autoload_register(null, false);
+	include_once 'includes/autoloader.php';
+	include_once 'includes/rb.php';
 
-    /*** especifico que extensiones se abriran ***/
-    spl_autoload_extensions('.class.php');
+	if (ISSET($_GET["id"])){
 
-    /*** clase Loader ***/
-    function classLoader($class)
-    {
-        $filename = strtolower($class) . '.class.php';
-        $file ='includes/' . $filename;
-        if (!file_exists($file))
-        {
-            return false;
-        }
-        include $file;
-    }
-
-    /*** registro la funcion Loader ***/
-    spl_autoload_register('classLoader');
-
-
-	if(ISSET($_GET["id"])){
-
-		//R::setup( 'mysql:host=localhost;dbname=pirchiopropiedades', 'root', 'pirchio' );//Conexion con BD
 		$db = Database::getInstance();
 		$db->connect();
 		$id=$_GET["id"];
@@ -67,13 +45,12 @@
 			<div>
 				<label>Tipo Inmueble</label>
 				<?php
-				print $inmueble->tipoinmueble;
-					switch($inmueble->tipoinmueble) {
+					switch ($inmueble->tipoinmueble) {
 						case 'casa':
 							?>
 								<select name="type" class="form-control">
 								  <option selected="selected" value="casa">Casa</option>
-								  <option value="depto">Departamento</option>
+								  <option value="departamento">Departamento</option>
 								  <option value="campo">Campo</option>
 								  <option value="terreno">Terreno</option>
 								  <option value="quinta">Casa Quinta</option>
@@ -85,7 +62,7 @@
 							?>
 								<select name="type" class="form-control">
 								  <option value="casa">Casa</option>
-								  <option selected="selected" value="depto">Departamento</option>
+								  <option selected="selected" value="departamento">Departamento</option>
 								  <option value="campo">Campo</option>
 								  <option value="terreno">Terreno</option>
 								  <option value="quinta">Casa Quinta</option>
@@ -97,7 +74,7 @@
 							?>
 								<select name="type" class="form-control">
 								  <option value="casa">Casa</option>
-								  <option value="depto">Departamento</option>
+								  <option value="departamento">Departamento</option>
 								  <option selected="selected" value="campo">Campo</option>
 								  <option value="terreno">Terreno</option>
 								  <option value="quinta">Casa Quinta</option>
@@ -109,7 +86,7 @@
 							?>
 								<select name="type" class="form-control">
 								  <option value="casa">Casa</option>
-								  <option value="depto">Departamento</option>
+								  <option value="departamento">Departamento</option>
 								  <option value="campo">Campo</option>
 								  <option selected="selected" value="terreno">Terreno</option>
 								  <option value="quinta">Casa Quinta</option>
@@ -121,7 +98,7 @@
 							?>
 								<select name="type" class="form-control">
 								  <option value="casa">Casa</option>
-								  <option value="depto">Departamento</option>
+								  <option value="departamento">Departamento</option>
 								  <option value="campo">Campo</option>
 								  <option value="terreno">Terreno</option>
 								  <option selected="selected" value="quinta">Casa Quinta</option>
@@ -133,7 +110,7 @@
 							?>
 								<select name="type" class="form-control">
 								  <option value="casa">Casa</option>
-								  <option value="depto">Departamento</option>
+								  <option value="departamento">Departamento</option>
 								  <option value="campo">Campo</option>
 								  <option value="terreno">Terreno</option>
 								  <option value="quinta">Casa Quinta</option>
@@ -141,11 +118,11 @@
 								</select>
 							<?php
 						break;
-						case ''://Este case no se deberia dar nunca, dado que deberia ser imposible que no se obtenga el dato del SELECT, pero mejor que sobre y que no falte :D
+						case '': //Este case no se deberia dar nunca, dado que deberia ser imposible que no se obtenga el dato del SELECT, pero mejor que sobre y que no falte :D
 							?>
 								<select name="type" class="form-control">
 								  <option value="casa">Casa</option>
-								  <option value="depto">Departamento</option>
+								  <option value="departamento">Departamento</option>
 								  <option value="campo">Campo</option>
 								  <option value="terreno">Terreno</option>
 								  <option value="quinta">Casa Quinta</option>
@@ -153,10 +130,8 @@
 								</select>
 							<?php
 						break;
-
 					}
 				?>
-
 			</div>
 			<div>
 				<label>Provincia</label>
@@ -173,7 +148,7 @@
 			<div>
 				<label>Venta</label>
 				<?php
-					if($inmueble->venta!=NULL)
+					if ($inmueble->venta!=NULL)
 						print "<input name='sell_bool' type='checkbox' class='form-control' checked='checked' >";
 					else
 						print "<input name='sell_bool' type='checkbox' class='form-control' >";
@@ -182,7 +157,7 @@
 			<div>
 				<label>Alquiler</label>
 				<?php
-					if($inmueble->alquiler!=NULL)
+					if ($inmueble->alquiler!=NULL)
 						print "<input name='rent_bool' type='checkbox' class='form-control' checked='checked' >";
 					else
 						print "<input name='rent_bool' type='checkbox' class='form-control' >";
@@ -210,14 +185,11 @@
 			<input type="hidden" name="id" value="<?php print $id ?>">
 		</form>
 		<?php
-	}else {
-		
+	} else {		
 		if (isset($_POST['state']) AND isset($_POST['loc']) AND isset($_POST['address'])) {
 
-			$datos = array_merge(array(), $_POST);
-			
-			$inmueble = new Inmueble($datos);
-			
+			$datos = array_merge(array(), $_POST);			
+			$inmueble = new Inmueble($datos);			
 			echo "<script> window.location.assign('abm.php'); </script>";
 		}
 		?>
@@ -226,7 +198,7 @@
 					<label>Tipo Inmueble</label>
 					<select name="type" class="form-control">
 					  <option value="casa">Casa</option>
-					  <option value="depto">Departamento</option>
+					  <option value="departamento">Departamento</option>
 					  <option value="campo">Campo</option>
 					  <option value="terreno">Terreno</option>
 					  <option value="quinta">Casa Quinta</option>
@@ -275,7 +247,6 @@
 			</form>
 		<?php
 	}
-
 ?>
 </body>
 </html>
