@@ -6,6 +6,27 @@
 	$db = Database::getInstance();
 	$db->connect();	
 	$inmuebles = R::findAll( 'inmueble' ); //Obtiene todos los registros de la tabla
+	
+	function enumDropdown($table_name, $column_name, $echo = false)
+	{
+		$tiposInm=R::getAll( "SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS
+							  WHERE TABLE_NAME = '".$table_name."' AND COLUMN_NAME = '".$column_name."'" );
+		
+		$selectDropdown = "<select name=\"$column_name\">";
+		$enumList = explode(",", str_replace("'", "", substr($tiposInm[0]['COLUMN_TYPE'], 5, (strlen($tiposInm[0]['COLUMN_TYPE'])-6))));
+
+		foreach($enumList as $value){
+			$capValue=ucwords($value);
+			$selectDropdown .= "<option value=\"$capValue\">$capValue</option>";
+		}
+
+		$selectDropdown .= "</select>";
+
+		if ($echo)
+			echo $selectDropdown;
+
+		return $selectDropdown;
+	}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -56,17 +77,13 @@
 							<option name="op-ambas" value="">VENTA/ALQUILER</option>
 						</select>
 					</div>
+				
 
 					<div class="form-group">
 						<label for="tipo-inmueble">Tipo de Inmueble</label>
-						<select class="form-control" name="tipo-inmueble">
-							<option name="" value="">CASA</option>
-							<option name="" value="">DEPARTAMENTO</option>
-							<option name="" value="">CAMPO</option>
-							<option name="" value="">TERRENO</option>
-							<option name="" value="">CASA QUINTA</option>
-							<option name="" value="">LOCAL COMERCIAL</option>
-						</select>
+						<?php
+						echo enumDropdown('inmueble','tipoinmueble');
+						?>
 					</div>
 				</form>
 			</div>
